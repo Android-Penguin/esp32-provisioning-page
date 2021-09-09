@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provisioning page</title>
+</head>
+<style>
+    :root {
+        --lightBlue: #041E67;
+        --darkBlue: #131341;
+        font-size: 16px;
+        font-family: sans-serif;
+        color: var(--darkBlue);
+    }
+    html, body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        /* background: linear-gradient(235deg, #FFFFFF 0%, #000F25 100%), linear-gradient(180deg, #6100FF 0%, #000000 100%), linear-gradient(235deg, #FFA3AC 0%, #FFA3AC 40%, #00043C calc(40% + 1px), #00043C 60%, #005D6C calc(60% + 1px), #005D6C 70%, #00C9B1 calc(70% + 1px), #00C9B1 100%), linear-gradient(125deg, #FFA3AC 0%, #FFA3AC 40%, #00043C calc(40% + 1px), #00043C 60%, #005D6C calc(60% + 1px), #005D6C 70%, #00C9B1 calc(70% + 1px), #00C9B1 100%);
+        background-blend-mode: soft-light, screen, darken, normal; */
+        background: radial-gradient(100% 225% at 100% 0%, #FF0000 0%, #000000 100%), linear-gradient(236deg, #00C2FF 0%, #000000 100%), linear-gradient(135deg, #CDFFEB 0%, #CDFFEB 36%, #009F9D 36%, #009F9D 60%, #07456F 60%, #07456F 67%, #0F0A3C 67%, #0F0A3C 100%);
+        background-blend-mode: overlay, hard-light, normal;
+
+    }
+    body {
+        padding: 20px;
+    }
+    #main-content {
+        max-width: 500px;
+        height: 90vh;
+        margin: 0 auto 0 auto;
+        padding: 25px;
+        background-color: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(8px);
+        border-radius: 25px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 2rem;
+        text-align: center;
+    }
+    p {
+        font-size: 1.2rem;
+        color: var(--lightBlue);
+    }
+</style>
+<body>
+    <!-- Content DIV -->
+    <div id="main-content">
+        <h1>Hello World</h1>
+        <p>some text in a different colour</p>
+    </div>
+</body>
+</html>
