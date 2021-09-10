@@ -164,5 +164,6 @@ var dots = document.getElementsByClassName("dot-box");
 if (!isIOS) {
     for (item of dots) {
         item.classList.add("safari-dot");
+        window.alert("change happened");
     }
 }
