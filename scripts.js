@@ -124,6 +124,7 @@ document.getElementById("confirm").addEventListener("click", function(event){
         })
         .then(function (response) {
             console.log('writeConfig response:', response);
+            return(response.json());
         })
         .then(function (responseData) {
             console.log('writeConfig response data:', JSON.stringify(responseData));
