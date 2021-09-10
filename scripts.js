@@ -118,7 +118,7 @@ document.getElementById("confirm").addEventListener("click", function(event){
             }
         }
     }
-    return fetch(window.location.href + '/writeConfig', {
+    return fetch(window.location.href + 'writeConfig', {
             method: 'post',
             body: JSON.stringify(networkConfig),
         })
@@ -126,10 +126,13 @@ document.getElementById("confirm").addEventListener("click", function(event){
             console.log('writeConfig response:', response);
         })
         .then(function (responseData) {
-            console.log('writeConfig response data:', JSON.stringify(responseData));                
+            console.log('writeConfig response data:', JSON.stringify(responseData));
+            var data = JSON.parse(responseData);
+            window.alert(data.result);
         })
         .catch(function (error) {
             console.log('writeConfig response error:', JSON.stringify(error));
+            window.alert("An error has occurred, please try again.");
         });
     }
 );
@@ -137,6 +140,11 @@ document.getElementById("confirm").addEventListener("click", function(event){
 /*Cancel changes*/
 document.getElementById("cancel").addEventListener("click", function(event){
     event.preventDefault();
+    window.alert("No changes were made, disconnected from device.");
+    return fetch(window.location.href + 'writeConfig', {
+        method: 'post',
+        body: {},
+    });
 });
 
 /*Prevent enter key*/
@@ -148,5 +156,13 @@ function enter_detector(e) {
     if (e.keyCode === 13 || e.which === 13) {
         e.preventDefault();
         this.blur();
+    }
+}
+/*Annoying fix for safari*/
+var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+var dots = document.getElementsByClassName("dot-box");
+if (!isIOS) {
+    for (item of dots) {
+        item.classList.add("safari-dot");
     }
 }

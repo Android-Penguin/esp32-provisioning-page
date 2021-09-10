@@ -106,7 +106,17 @@ input:invalid {
 }
 #static-ip-box div input:first-of-type {border-left: solid;}
 #static-ip-box div input:last-of-type {border-right: solid;}
-#static-ip-box div input.dot-box {width: 10px; font-weight: bolder;}
+#static-ip-box div input.dot-box {
+    width: 10px; font-weight: bolder;
+}
+#static-ip-box div input.safari-dot {
+    width: 5px; 
+    height: 5px;
+    transform: translateY(5px);
+    border: none;
+    border-radius: 50%;
+    background-color: black;
+}
 
 #button-container {
     display: flex;
