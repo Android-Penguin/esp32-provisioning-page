@@ -16,7 +16,7 @@ function wifiBox(radioButton) {
 var staticIPBox = document.getElementById("static-ip-box");
 function staticConfigBox(radioButton) {
     if(radioButton.value!="useDHCP") {
-        staticIPBox.style.maxHeight = "150px";
+        staticIPBox.style.maxHeight = "300px";
         staticIPBox.style.margin = "0 0 5px 0";
         staticIPBox.style.borderStyle = "solid";
     } else {
@@ -151,12 +151,21 @@ document.getElementById("cancel").addEventListener("click", function(event){
 var textFields = document.getElementsByClassName("text-field");
 for(item of textFields) {
     item.addEventListener('keypress',enter_detector,false);
+    item.addEventListener('focus',click_detector,false);
 }
 function enter_detector(e) {
+    console.log(e.keyCode);
     if (e.keyCode === 13 || e.which === 13) {
         e.preventDefault();
         this.blur();
     }
+    if (e.keyCode === 46 || e.which === 46) {
+        e.preventDefault();
+        this.nextElementSibling.nextElementSibling.focus();
+    }
+}
+function click_detector() {
+    this.select();
 }
 /*Annoying fix for safari*/
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;

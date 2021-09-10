@@ -63,15 +63,10 @@ input:invalid {
 #main-content > div {
     margin: 5px 0 5px 0;
 }
-@media (max-width: 600px) {
-    #main-content {
-        padding: 5px 5px 50px 5px;
-    }
-}
 /* Dropdowns */
 #main-content > div.dropdown-box {
     display: flex;
-    max-width: 270px;
+    max-width: 300px;
     max-height: 1px;
     margin: 0;
     padding: 0 3px 0 3px;
@@ -98,21 +93,28 @@ input:invalid {
     width: 75px;
 }
 /* Static specific */
-#static-ip-box div input {
-    width: 30px;
+#static-ip-box > div input {
+    width: 35px;
     text-align: center;
     border-left: none;
     border-right: none;
 }
-#static-ip-box div input:first-of-type {border-left: solid;}
-#static-ip-box div input:last-of-type {border-right: solid;}
-#static-ip-box div input.dot-box {
+#static-ip-box > div > div {
+    display: inline-block;
+    margin-right: 10px;
+}
+#static-ip-box > div input:first-of-type {border-left: solid;}
+#static-ip-box > div input:last-of-type {border-right: solid;}
+#static-ip-box > div input.dot-box {
     width: 10px; font-weight: bolder;
 }
-#static-ip-box div input.safari-dot {
+#static-ip-box > div input.safari-dot {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
     width: 5px; 
     height: 5px;
-    transform: translateY(5px);
+    transform: translateY(3px);
     border: none;
     border-radius: 50%;
     background-color: black;
