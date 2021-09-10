@@ -161,9 +161,8 @@ function enter_detector(e) {
 /*Annoying fix for safari*/
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 var dots = document.getElementsByClassName("dot-box");
-if (!isIOS) {
+if (isIOS) {
     for (item of dots) {
         item.classList.add("safari-dot");
-        window.alert("change happened");
     }
 }
