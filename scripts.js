@@ -26,7 +26,20 @@ function staticConfigBox(radioButton) {
     }
 }
 /*Update values*/
+var networkConfig;
 function updateValues() {
+    fetch(window.location.href + 'config', {
+        method: 'get'
+    })
+    .then( function(response) {
+        return(response.json());
+    })
+    .then( function(responseData) {
+        networkConfig = responseData;
+    })
+    .catch( function() {
+        networkConfig = {};
+    });
     for (item in networkConfig) {
         if(item == "hasEthernet") {
             if(networkConfig[item] == 0) {
@@ -118,23 +131,22 @@ document.getElementById("confirm").addEventListener("click", function(event){
             }
         }
     }
-    return fetch(window.location.href + 'writeConfig', {
+    fetch(window.location.href + 'config', {
             method: 'post',
             body: JSON.stringify(networkConfig),
-        })
-        .then(function (response) {
-            console.log('writeConfig response:', response);
-            return(response.json());
-        })
-        .then(function (responseData) {
-            console.log('writeConfig response data:', JSON.stringify(responseData));
-            var data = JSON.parse(responseData);
-            window.alert(data.result);
-        })
-        .catch(function (error) {
-            console.log('writeConfig response error:', JSON.stringify(error));
-            window.alert("An error has occurred, please try again.");
-        });
+    })
+    .then(function (response) {
+        console.log('config response:', response);
+        return(response.json());
+    })
+    .then(function (responseData) {
+        console.log('config response data:', JSON.stringify(responseData));
+        window.alert(responseData.result);
+    })
+    .catch(function (error) {
+        console.log('config response error:', JSON.stringify(error));
+        window.alert("An error has occurred, please try again.");
+    });
     }
 );
 
@@ -142,7 +154,7 @@ document.getElementById("confirm").addEventListener("click", function(event){
 document.getElementById("cancel").addEventListener("click", function(event){
     event.preventDefault();
     window.alert("No changes were made, disconnected from device.");
-    return fetch(window.location.href + 'writeConfig', {
+    fetch(window.location.href + 'config', {
         method: 'post',
         body: {},
     });

@@ -101,7 +101,11 @@ input:invalid {
 }
 #static-ip-box > div > div {
     display: inline-block;
-    margin-right: 10px;
+}
+@media (max-width: 600px) {
+    #static-ip-box > div > div {
+        width: 100%;
+    }
 }
 #static-ip-box > div input:first-of-type {border-left: solid;}
 #static-ip-box > div input:last-of-type {border-right: solid;}
