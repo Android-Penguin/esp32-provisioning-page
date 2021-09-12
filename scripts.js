@@ -27,8 +27,8 @@ function staticConfigBox(radioButton) {
 }
 /*Update values*/
 var networkConfig;
-function updateValues() {
-    fetch(window.location.href + 'config', {
+async function updateValues() {
+    await fetch(window.location.href + 'config', {
         method: 'get'
     })
     .then( function(response) {
