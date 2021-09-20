@@ -25,6 +25,15 @@ function staticConfigBox(radioButton) {
         staticIPBox.style.borderStyle = "none";
     }
 }
+
+/*Button response*/
+function displayMessage(message) {
+    document.getElementById("main-content").style.visibility = "hidden";
+    document.getElementById("confirm-text").innerHTML = message;
+    document.getElementById("hidden-div").style.display = "block";
+    document.getElementById("hidden-div").style.visibility = "visible";
+}
+
 /*Update values*/
 var networkConfig;
 async function updateValues() {
@@ -134,30 +143,18 @@ document.getElementById("confirm").addEventListener("click", function(event){
     fetch(window.location.href + 'config', {
             method: 'post',
             body: JSON.stringify(networkConfig),
-    })
-    .then(function (response) {
-        console.log('config response:', response);
-        return(response.json());
-    })
-    .then(function (responseData) {
-        console.log('config response data:', JSON.stringify(responseData));
-        window.alert(responseData.result);
-    })
-    .catch(function (error) {
-        console.log('config response error:', JSON.stringify(error));
-        window.alert("An error has occurred, please try again.");
     });
-    }
-);
+    displayMessage("Changes have been saved, disconnected from device.");
+});
 
 /*Cancel changes*/
 document.getElementById("cancel").addEventListener("click", function(event){
     event.preventDefault();
-    window.alert("No changes were made, disconnected from device.");
     fetch(window.location.href + 'config', {
         method: 'post',
         body: {},
     });
+    displayMessage("No changes were made, disconnected from device.");
 });
 
 /*Prevent enter key*/
