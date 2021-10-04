@@ -50,7 +50,7 @@ async function updateValues() {
         networkConfig = {};
     });
     for (item in networkConfig) {
-        if (item == "deviceContentSet") {
+        if (item == "deviceConfigSet") {
             if(networkConfig[item] == 1) {
                 document.getElementById("status-btn").style.display = "block";
             }
