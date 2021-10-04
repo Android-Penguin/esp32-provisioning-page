@@ -109,7 +109,7 @@ input:invalid {
 }
 #static-ip-box > div input:first-of-type {border-left: solid;}
 #static-ip-box > div input:last-of-type {border-right: solid;}
-#static-ip-box > div input.dot-box {
+#static-ip-box > div input.dot {
     width: 10px; font-weight: bolder;
 }
 #static-ip-box > div input.safari-dot {
@@ -122,6 +122,24 @@ input:invalid {
     border: none;
     border-radius: 50%;
     background-color: black;
+}
+
+#status-btn {
+    display: none;
+    width: 80px;
+    padding: 10px;
+    color: var(--lightBlue);
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    background-color: rgb(250, 250, 250);
+    border-color: var(--darkBlue);
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+}
+#status-btn:hover {
+    font-weight: bold;
 }
 
 #button-container {

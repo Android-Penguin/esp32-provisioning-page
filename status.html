@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        h2.large-text {
+            font-size: 2rem;
+            animation-name: blink ;
+            animation-duration: 0.5s;
+        }
+        @keyframes blink {
+            0% {color: var(--lightBlue);}
+            50% {color: #2959db;}
+            100% {color: var(--lightBlue);}
+        }
+    </style>
+</head>
+<body onload="updateValues()">
+    <form id="main-content">
+        <h1>Status</h1>
+        <h2 id="error" class="large-text" style="display: none; text-align: center; font-size: 1.5rem;">Error fetching values</h2>
+    </form>
+    <script src="status_scripts.js"></script>
+</body>
+</html>

@@ -50,7 +50,11 @@ async function updateValues() {
         networkConfig = {};
     });
     for (item in networkConfig) {
-        if(item == "hasEthernet") {
+        if (item == "deviceContentSet") {
+            if(networkConfig[item] == 1) {
+                document.getElementById("status-btn").style.display = "block";
+            }
+        } else if(item == "hasEthernet") {
             if(networkConfig[item] == 0) {
                 document.getElementById("ethernet-properties").style.display = "none";
             }
@@ -144,7 +148,7 @@ document.getElementById("confirm").addEventListener("click", function(event){
             method: 'post',
             body: JSON.stringify(networkConfig),
     });
-    displayMessage("Changes have been saved, disconnected from device.");
+    displayMessage(confirmMsg);
 });
 
 /*Cancel changes*/
@@ -154,7 +158,7 @@ document.getElementById("cancel").addEventListener("click", function(event){
         method: 'post',
         body: {},
     });
-    displayMessage("No changes were made, disconnected from device.");
+    displayMessage(cancelMsg);
 });
 
 /*Prevent enter key*/
@@ -179,7 +183,7 @@ function click_detector() {
 }
 /*Annoying fix for safari*/
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-var dots = document.getElementsByClassName("dot-box");
+var dots = document.getElementsByClassName("dot");
 if (isIOS) {
     for (item of dots) {
         item.classList.add("safari-dot");
